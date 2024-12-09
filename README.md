@@ -2,18 +2,21 @@
 
 Let’s initialize the project, open a terminal and write this command
 
-> npm init
-> 
+```jsx
+npm init
+```
 
 Install development dependencies
 
-> npm i -D typescript ts-node-dev @types/node rimraf
-> 
+```jsx
+npm i -D typescript ts-node-dev @types/node rimraf
+```
 
 Setup typescript configuration
 
-> npx tsc -init
-> 
+```jsx
+npx tsc -init
+```
 
 Update `tsconfig.json` file with these configurations:
 
@@ -45,8 +48,9 @@ Update `tsconfig.json` file with these configurations:
 
 We can use a specific version of node for our server, create a new `.nvmrc` file in the root of your project, or you can use this command to generate it.
 
-> node -v > .nvmrc
-> 
+```jsx
+node -v > .nvmrc
+```
 
 To run the application, we need to set some commands in `package.json`.
 
@@ -69,10 +73,11 @@ To run the application, we need to set some commands in `package.json`.
 - `-transpile-only`: This flag tells `ts-node-dev` to only transpile TypeScript code to JavaScript without performing any type checking. This speeds up the transpilation process by skipping type checking during development, which can be useful in large projects where type checking can be a costly operation.
 - `-ignore-watch node_modules`: This flag tells `ts-node-dev` to ignore changes made in the `node_modules` folder. Since changes in this folder typically don't require restarting the application during development, this helps to avoid unnecessary restarts and improves performance.
 
-Environment variables
+**Environment variables**
 
-> npm i dotenv env-var
-> 
+```jsx
+npm i dotenv env-var
+```
 
 Let’s create two files `.env` and `.env.template` in the root of the project, in the `.env` file we can define these variables
 
@@ -82,15 +87,17 @@ DEFAULT_API_PREFIX=/api/v1
 NODE_ENV=development
 ```
 
-ESLint
+**ESLint**
 
-> npm i -D eslint
-> 
+```jsx
+npm i -D eslint
+```
 
 Initialize ESLint config with this command
 
-> npx eslint --init
-> 
+```jsx
+npx eslint --init
+```
 
 Update `.eslintrc.json` file with these configurations:
 
@@ -138,10 +145,11 @@ dist/
 jest.config.ts
 ```
 
-Prettier
+**Prettier**
 
-> npm i -D prettier eslint-plugin-prettier eslint-config-prettier
-> 
+```jsx
+npm i -D prettier eslint-plugin-prettier eslint-config-prettier
+```
 
 Create `.prettierrc` file with this content
 
@@ -184,18 +192,19 @@ Update tsconfig.json
 
 ```jsx
 {
-	"baseUrl": "./src",
-	"paths": {
-	    "@modules/*": ["rest/modules/*"],
-	    "@services/*": ["services/*"]
-	}
+  "baseUrl": "./src",
+  "paths": {
+    "@modules/*": ["rest/modules/*"],
+    "@services/*": ["services/*"]
+  }
 }
 ```
 
 Install module-alias package
 
-> `npm i --save module-alias`
-> 
+```jsx
+npm i --save module-alias
+```
 
 This module registers the path aliases in the compiled JS files. Therefor we need to make some changes to our package.json
 
@@ -208,5 +217,6 @@ This module registers the path aliases in the compiled JS files. Therefor we nee
 
 Add the following line at the top of your startup file
 
-> `import "module-alias/register"`
->
+```jsx
+import "module-alias/register"
+```
